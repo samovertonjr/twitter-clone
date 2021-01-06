@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
           className="w-7 h-7"
           src="https://avatars.dicebear.com/4.5/api/bottts/this-is.svg"
         />
-        <p className="ml-6 text-lg font-extrabold">Latest Tweets</p>
+        <p className="ml-6 text-lg font-extrabold">{Component.headerTitle}</p>
       </header>
 
       <main className="flex-1">

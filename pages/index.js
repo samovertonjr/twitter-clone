@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+function Home() {
   return (
     <div>
       <Head>
@@ -15,3 +15,6 @@ export default function Home() {
     </div>
   )
 }
+
+Home.headerTitle = 'Latest Tweets'
+export default Home
