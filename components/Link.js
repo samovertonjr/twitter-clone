@@ -1,6 +1,5 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
 
 export function Link({ href, childeren, activeIcon, inactiveIcon, ...rest }) {
   const router = useRouter()
