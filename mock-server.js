@@ -4,8 +4,8 @@ import faker, { image, name, internet, lorem } from 'faker'
 
 faker.seed(123)
 
-const startingDate = parseISO('2021-01-01')
-export default createServer({
+let startingDate = parseISO('2020-01-14')
+let server = createServer({
   timing: 1000,
   models: {
     tweet: Model,
@@ -22,7 +22,7 @@ export default createServer({
       },
 
       text() {
-        return lorem.sentences()
+        return lorem.sentence()
       },
 
       avatarUrl() {
@@ -34,8 +34,8 @@ export default createServer({
       },
 
       fromSam: trait({
-        name: 'Sam Overton',
-        username: 'samovertonjr',
+        name: 'Sam O',
+        username: 'samojr',
         avatarUrl: 'https://avatars.dicebear.com/4.5/api/bottts/this-is.svg',
       }),
     }),
@@ -45,7 +45,7 @@ export default createServer({
     this.namespace = 'api'
     this.get('tweets')
 
-    this.namespace = '' // or this.namespace = "/"
+    this.namespace = ''
     this.passthrough()
   },
 
