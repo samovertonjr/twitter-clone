@@ -1,17 +1,17 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useQuery } from 'react-query'
+import fetch from 'isomorphic-unfetch'
 
 function Home() {
+  const { data, isLoading } = useQuery('tweets', () =>
+    fetch('http://localhost:3000/api/tweets').then((res) => res.json())
+  )
+  if (isLoading) return 'Loading...'
+
   return (
     <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to Sam.js</h1>
-      </main>
+      {data.tweets.map((tweet) => (
+        <p>{tweet.name}</p>
+      ))}
     </div>
   )
 }
